@@ -9,10 +9,19 @@ public:
 //         }
         
 //         return res[n];
-        if(n==1 or n==2) return 1;
-        if(n==0) return 0;
         
-        
-        return fib(n-1)+fib(n-2);
+        if(n==0 || n==1)
+            return n;
+        int prev=0;
+        int latest=1;
+        int ans;
+        for(int i=2;i<=n;i++)
+        {
+          ans=latest+prev;
+            prev=latest;
+            latest=ans;
+            
+        }
+        return ans;
     }
 };
