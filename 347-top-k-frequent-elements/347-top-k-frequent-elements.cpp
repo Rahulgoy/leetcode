@@ -34,7 +34,7 @@ public:
 //         return res;
         
         
-        
+//         Method 2 using priority queue and faster as well
         
         unordered_map<int,int>mapp;
         for(int i=0;i<nums.size();i++)
