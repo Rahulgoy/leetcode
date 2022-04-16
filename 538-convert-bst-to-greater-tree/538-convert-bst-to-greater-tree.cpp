@@ -13,7 +13,7 @@ class Solution {
 public:
     unordered_map<int,int> mp;
     int maxi=0;
-    
+    int sum=0;
     void findMax(TreeNode* root){
         if(root==NULL) return;
         maxi=max(maxi,root->val);
@@ -23,20 +23,31 @@ public:
         findMax(root->right);
     }
     TreeNode* convertBST(TreeNode* root) {
-        if(root==NULL) return root;
+        // Method 1 Bit of own and long method
+//         if(root==NULL) return root;
         
         
-        findMax(root);
+//         findMax(root);
         
-        convertBST(root->left);
-        convertBST(root->right);
+//         convertBST(root->left);
+//         convertBST(root->right);
         
-        int sum=root->val;
-        for(int i=sum+1;i<=maxi;i++){
-            if(mp[i]) sum+=i;
+//         int sum=root->val;
+//         for(int i=sum+1;i<=maxi;i++){
+//             if(mp[i]) sum+=i;
+//         }
+//         root->val = sum;
+//         sum=0;
+//         return root;
+        
+        
+        if(root!=NULL)
+        {
+            convertBST(root->right);
+            sum+=root->val;
+            root->val = sum;
+            convertBST(root->left);
         }
-        root->val = sum;
-        sum=0;
         return root;
     }
 };
