@@ -11,16 +11,17 @@
  */
 class Solution {
 public:
-    set<int> s;
-    void inorder(TreeNode* root){
+    
+    void inorder(TreeNode* root,set<int> &s){
         if(!root) return;
-        inorder(root->left);
+        inorder(root->left,s);
         s.insert(root->val);
-        inorder(root->right);
+        inorder(root->right,s);
     }
     
     int findSecondMinimumValue(TreeNode* root) {
-        inorder(root);
+        set<int> s;
+        inorder(root,s);
         int second_smallest=-100;
         if(s.size()<2) return -1;
         
