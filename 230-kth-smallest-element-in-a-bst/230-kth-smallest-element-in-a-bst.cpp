@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    vector<int> arr;
+    // vector<int> arr;
     void inorder(TreeNode* root,int &count,int k,int &ans){
         if(!root) return;
         inorder(root->left,count,k,ans);
