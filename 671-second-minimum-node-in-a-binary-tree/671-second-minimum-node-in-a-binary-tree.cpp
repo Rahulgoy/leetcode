@@ -21,16 +21,20 @@ public:
     
     int findSecondMinimumValue(TreeNode* root) {
         inorder(root);
-        int smallest=-100;
         int second_smallest=-100;
         if(s.size()<2) return -1;
-        int count=0;
-        for(auto it:s){
-            if(count==0) smallest=it;
-            if(count==1) second_smallest=it;
-            count++;
-        }
         
-        return second_smallest;
+        auto x=s.begin();
+        x++;
+        return *x;
+        
+        
+//         int count=0;
+//         for(auto it:s){
+//             if(count==1) second_smallest=it;
+//             count++;
+//         }
+        
+//         return second_smallest;
     }
 };
