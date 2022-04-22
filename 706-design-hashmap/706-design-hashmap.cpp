@@ -1,24 +1,24 @@
 class MyHashMap {
 public:
-    int n = 1000000;
+    
     vector<int> node;
-    int hash(int key) {
-        return key%n;
-    }
+    // int hash(int key) {
+    //     return key%n;
+    // }
     MyHashMap() {
-        node.resize(n+1,-1);
+        node.resize(1000001,-1);
     }
     
     void put(int key, int value) {
-        node[hash(key)]=value;
+        node[key]=value;
     }
     
     int get(int key) {
-        return node[hash(key)];
+        return node[key];
     }
     
     void remove(int key) {
-        node[hash(key)]=-1;
+        node[key]=-1;
     }
 };
 
