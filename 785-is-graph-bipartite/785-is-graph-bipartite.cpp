@@ -1,13 +1,14 @@
 class Solution {
 public:
-    vector<int> vis,col;
+    vector<int> col;
+    vector<bool> vis;
     
     bool dfs(int i,int color,vector<vector<int>> &graph){
-        vis[i]=1;
+        vis[i]=true;
         col[i]=color;
         
         for(auto x:graph[i]){
-            if(vis[x]==0){
+            if(vis[x]==false){
                 if(!dfs(x,color^1,graph)) return false;
             }else{
                 if(col[i]==col[x]) return false;
@@ -22,7 +23,7 @@ public:
         col.resize(n);
         
         for(int i=0;i<n;i++){
-            if(vis[i]==0 and dfs(i,0,graph)==false) return false;
+            if(vis[i]==false and dfs(i,0,graph)==false) return false;
         }
         return true;
     }
