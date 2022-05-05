@@ -7,36 +7,57 @@ public:
     }
     
     void push(int x) {
+        // q1.push(x);
+        
+        
+        int n = q1.size();
         q1.push(x);
+        
+            for(int i=0;i<n;i++){
+                q1.push(q1.front());
+                q1.pop();
+                
+            }
+        
     }
     
     int pop() {
-        int temp=0;
-        while(!q1.empty()){
-            temp = q1.front();
+        // int temp=0;
+        // while(!q1.empty()){
+        //     temp = q1.front();
+        //     q1.pop();
+        //     if(q1.empty()) continue;
+        //     else q2.push(temp);
+        // }
+        // while(!q2.empty()){
+        //     q1.push(q2.front());
+        //     q2.pop();
+        // }
+        // return temp;
+        
+        
+        int temp;
+        if(!q1.empty()){
+            temp=q1.front();
             q1.pop();
-            if(q1.empty()) continue;
-            else q2.push(temp);
-        }
-        while(!q2.empty()){
-            q1.push(q2.front());
-            q2.pop();
         }
         return temp;
     }
     
     int top() {
-        int temp=0;
-        while(!q1.empty()){
-            temp = q1.front();
-            q1.pop();
-            q2.push(temp);
-        }
-        while(!q2.empty()){
-            q1.push(q2.front());
-            q2.pop();
-        }
-        return temp;
+        // int temp=0;
+        // while(!q1.empty()){
+        //     temp = q1.front();
+        //     q1.pop();
+        //     q2.push(temp);
+        // }
+        // while(!q2.empty()){
+        //     q1.push(q2.front());
+        //     q2.pop();
+        // }
+        // return temp;
+        
+        return q1.front();
     }
     
     bool empty() {
