@@ -17,9 +17,10 @@ public:
             mp[target-nums[i]]=i;
         }
         for(int i=0;i<nums.size();i++){
-            if(mp[nums[i]] and mp[nums[i]]!=i) return {mp[nums[i]],i};
+            if(mp[nums[i]] and i!=mp[nums[i]]) return {i,mp[nums[i]]};
         }
         return {0,0};
+        
         
     }
     
