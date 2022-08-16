@@ -14,13 +14,25 @@ public:
         
 //         return -1;
         
-        vector<int> alpha(26,0);
+        vector<int> charac(26,0);
         for(int i=0;i<s.length();i++){
-            alpha[s[i]-'a']++;
+            charac[s[i]-'a']++;
         }
         for(int i=0;i<s.length();i++){
-            if(alpha[s[i]-'a']==1) return i;
+            if(charac[s[i]-'a']==1) return i;
         }
         return -1;
+        
+        
+        
+        
+        // vector<int> alpha(26,0);
+        // for(int i=0;i<s.length();i++){
+        //     alpha[s[i]-'a']++;
+        // }
+        // for(int i=0;i<s.length();i++){
+        //     if(alpha[s[i]-'a']==1) return i;
+        // }
+        // return -1;
     }
 };
