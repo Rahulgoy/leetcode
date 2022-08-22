@@ -18,13 +18,10 @@ public:
         // long long temp= (first)LL;
         // cout<<first<<endl;
         long long first,second;
-        if(n%2==0){
-            first = solve(4,n/2);
-            second = solve(5,n/2);
-        }else{
-            first = solve(4,n/2);
-            second = solve(5,1+(n/2));
-        }
+        
+        first = solve(4,n/2);
+        second = solve(5,n-(n/2));
+        
         
         
         long long ans =((first%mod)*(second%mod))%mod;
