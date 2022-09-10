@@ -11,16 +11,44 @@
  */
 class Solution {
 public:
-    void inorder(TreeNode* root, vector<int> &res){
+    void postorder(TreeNode* root, vector<int> &res){
         if(!root) return;
         
-        inorder(root->left,res);
-        inorder(root->right,res);
+        
+        postorder(root->left,res);
+        postorder(root->right,res);
         res.push_back(root->val);
     }
+    
     vector<int> postorderTraversal(TreeNode* root) {
+        
         vector<int> res;
-        inorder(root,res);
+        if(!root) return res;
+        // Recursive         
+        // postorder(root,res);
+        // return res;
+        
+        
+        // Iterative
+        stack<TreeNode*> st;
+        st.push(root);
+        unordered_map<TreeNode*, int> vis;
+        while(!st.empty()){
+            TreeNode *temp=st.top();
+            vis[temp]=1;
+            if(temp){
+                if(temp->left){
+                    if(!vis[temp->left]) {st.push(temp->left);continue;}
+                } 
+                if(temp->right){
+                    if(!vis[temp->right]) {st.push(temp->right);continue;}
+                } 
+                
+                res.push_back(st.top()->val);
+            }
+            st.pop();
+            
+        }
         return res;
     }
     
